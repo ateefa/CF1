@@ -1,0 +1,22 @@
+# for _ in range(int(input())):
+#     n,k=map(int,input().split())
+#     o=['1']*n
+#     for i,v in enumerate(i for i,c in enumerate(input()) if c=='0'):
+#         d=min(v-i,k)
+#         k-=d
+#         o[v-d]='0'
+#     print(''.join(o))
+
+for i in range(int(input())):
+	n,k=map(int,input().split())
+	arr=list(input())
+	
+	an=['1']*n
+	t=0
+	for j in range(n):
+		if(arr[j]=='0'):
+			s=min(k,j-t)
+			k-=s
+			an[j-s]='0'
+			t+=1
+	print("".join(an))
