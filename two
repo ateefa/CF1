@@ -1,3 +1,20 @@
+n,m=tuple(map(int,input().split()))
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+b.sort()
+x=[]
+for i in range(n):
+    x.append((b[0]-a[i])%m)
+x=list(set(x))
+for i in range(len(x)):
+    k=[]
+    for j in range(n):
+        k.append((a[j]+x[i])%m)
+    k.sort()
+    if(k==b):
+        print(x[i])
+        break
+...........................................................
 n=list(map(int,input().split()))
 a=list(map(int,input().split()))
 b=list(map(int,input().split()))
