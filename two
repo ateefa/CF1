@@ -1,0 +1,45 @@
+n=list(map(int,input().split()))
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+b.sort()
+p=[(b[i] - a[0])%n[1] for i in range(n[0])]
+for i in p:
+	s=[(a[j]+i)%n[1] for j in range(n[0])]
+	s.sort()
+	if(s==b):
+		print(i)
+		break
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+def partition(arr,low,high): 
+	i = ( low-1 )		 
+	pivot = arr[high]	
+
+	for j in range(low , high): 
+		if arr[j] <= pivot: 
+			i = i+1
+			arr[i],arr[j] = arr[j],arr[i] 
+
+	arr[i+1],arr[high] = arr[high],arr[i+1] 
+	return ( i+1 ) 
+
+def quickSort(arr,low,high): 
+	if low < high: 
+		pi = partition(arr,low,high) 
+		quickSort(arr, low, pi-1) 
+		quickSort(arr, pi+1, high) 
+
+nm=input().split()
+n = int(nm[0])
+m = int(nm[1])
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+quickSort(b,0,n-1) 
+
+for i in range(m):
+	for j in range(n):
+		a[j] = (a[j]+i)%m
+	quickSort(a,0,n-1)	
+	if a==b:
+		break
+print(i)
